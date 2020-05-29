@@ -1,0 +1,110 @@
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+    margin: 0% 0% 0% 0%;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    border-width:thin;
+
+    overflow: scroll;
+    background-position: inherit;
+
+}
+
+h1, h2,h3{
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: -2px;
+
+
+
+    color: black;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 2.4em;
+}
+
+h3 {
+    font-size:larger ;
+    font-weight: 700;
+    font-family: Georgia,'Times New Roman',times,serif;
+    font-size: 20px;
+    border-color: #b1b536;
+    text-decoration: underline;
+}
+
+ul, ol {
+}
+
+
+a:hover {
+}
+
+/* Header */
+
+
+table{
+    border-radius:3px;
+
+}
+.main{
+    table-layout: fixed;
+    width: 1000px;
+    table-layout: fixed;
+    border :1px solid;
+    border-radius:6px;
+
+}
+.maindiv{
+    /*    overflow: auto;*/
+    width: 996px;
+    height: 600px;
+
+    /*    border: 1px solid*/
+
+
+}
+
+
+
+
+.input_text{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    border:1px solid #FF7C08;
+    padding:2px;
+    width:150px;
+    color:#802900;
+    background:white url(../images/search.png) no-repeat 3px 2px;
+    padding-left:17px;
+}
+
+
+.button_signout{
+    background-image: url(../img/user_icon.png);
+    /*background-repeat: no-repeat;
+    background-position: center;
+    padding-20px: 30px;*/
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 35px;
+    width: 50px;
+    vertical-align: middle;
+}
+.button_signout input:active,.button_signout input:focus{
+    background: transparent
+}

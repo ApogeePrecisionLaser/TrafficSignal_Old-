@@ -1,0 +1,39 @@
+.container {
+        width: 375px;
+        padding: 0px;
+        margin: 0px 0 0px 0;
+        border: 1px solid #ccc;
+            float: right;
+}
+
+/* rounded */
+
+#nav {
+        margin: 0;
+        padding: 0 0 20px 10px;
+        border-bottom: 1px solid #9FB1BC;
+
+}
+
+#nav li {
+        margin: 0;
+        padding: 0;
+        display: inline;
+        list-style-type: none;
+        float: left;
+}
+
+#nav a:link, #nav a:visited {
+        float: left;
+        font-size: 10px;
+        line-height: 14px;
+        font-weight: bold;
+        padding: 0 12px 6px 12px;
+        text-decoration: none;
+        color: #708491;
+}
+
+#nav a:link.active, #nav a:visited.active, #nav a:hover {
+        color: #000;
+        background: url(/imageslayout/Rounded.gif) no-repeat bottom center;
+}

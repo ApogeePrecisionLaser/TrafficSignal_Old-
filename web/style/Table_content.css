@@ -1,0 +1,98 @@
+/* 
+    Document   : Table_content
+    Created on : Jul 23, 2012, 4:23:19 PM
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+
+
+
+*/
+div.format
+{
+    padding: 10px;
+}
+.header_table
+{
+    background-color:#E3ECF3 ;
+    font-size:larger ;
+    font-weight: 700;
+    font-family: Georgia,'Times New Roman',times,serif;
+    font-size: 14px;
+    border-color: #b1b536;
+
+}
+
+table.reference
+{
+
+    background-color:white;
+
+    border:1px solid #c3c3c3;
+    border-bottom-style: inset;
+    border-collapse:collapse;
+    white-space: nowrap;
+    width:100%;
+
+}
+.row {
+    font-style: normal;
+    text-align: left;
+    background-color: white;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: black;
+    font-family: 'Courier New',Courier,monospace;
+}
+.input
+{
+    font-size: 12px;
+    height: 12px;
+    font-family: 'Courier New',Courier,monospace;
+    font-weight: 500;
+    background-color: white;
+
+}
+.input:focus
+{
+    background-color: lightsteelblue;
+}
+
+.lastrow
+{
+    color: black;
+}
+
+.heading
+{
+    font-weight: bolder;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    color: #035;
+    background-color: #E3ECF3;
+
+}
+
+
+
+.button
+{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.dropdown
+{
+    font-size: 11px;
+    height: 20px;
+    font-family: 'Courier New',Courier,monospace;
+    font-weight: 500;
+    background-color: white;
+
+}

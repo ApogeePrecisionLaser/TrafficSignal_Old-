@@ -1,0 +1,48 @@
+/* Just The Tip */
+
+.tooltip {
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    position: absolute;
+    margin-top: -5px;
+  
+
+}
+
+.tooltipcontent {
+    height: 130px;
+    padding: 10px 10px 5px 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 10px #999;
+    -moz-box-shadow: 0 0 10px #999;
+    border: 1px solid #bbd4fd;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid;
+    white-space: normal;
+
+}
+
+.tooltipcontent a{
+    color: blue;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+
+
+.tooltipcontent a:hover{
+    text-decoration: underline;
+    color: #972800;
+}
+.nubbin {
+    margin: 0 auto -10px 295px;
+
+}
+
+.tooltipcontent p {
+    padding: 0;
+}

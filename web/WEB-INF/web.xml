@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!-- ...........................Application specific (context) parameters.......................... -->
+    <context-param>
+        <param-name>driverClass</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>connectionString</param-name>
+        <param-value>jdbc:mysql://localhost:3306/traffic_signals</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db_userName</param-name>
+        <param-value>jpss_2</param-value>
+<!--        <param-value>root</param-value>-->
+    </context-param>
+    <context-param>
+        <description>	</description>
+        <param-name>db_userPassword</param-name>
+        <param-value>jpss_1277</param-value>
+<!--           <param-value>root</param-value>-->
+    </context-param>
+    <context-param>
+        <description>This user does the registration of the users.</description>
+        <param-name>registrar_userName</param-name>
+        <param-value>registrar</param-value>
+    </context-param>
+    <context-param>
+        <description>This user MUST have the 'select, insert, delete on mysql.user' privilege.</description>
+        <param-name>registrar_userPassword</param-name>
+        <param-value>registrar</param-value>
+    </context-param>
+    <context-param>
+        <param-name>ssadvtRepositoryPath</param-name>
+        <param-value>E:\ssadvt_repository</param-value>
+    </context-param>
+    <!-- ..............................Web Application Listeners................................................ -->
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>com.ts.listeners.MyServletContextListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextAttributeListener</description>
+        <listener-class>com.ts.listeners.MyServletContextAttributeListener</listener-class>
+    </listener>
+    <!-- ..............................Web Application Filters................................................ -->
+    <filter>
+        <filter-name>General ModelRequestFilter</filter-name>
+        <filter-class>com.ts.general.Controller.ModemRequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>General ModelRequestFilter</filter-name>
+        <url-pattern>/after_login.jsp</url-pattern>
+    </filter-mapping>
+    <!-- ..............................JQuery Servlets................................................ -->
+    <!-- ............................... General Servlets............................................. -->
+
+    <servlet>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <!--<load-on-startup>1</load-on-startup>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+
+<!-- ............................... TimerSchedular start............................................. -->
+
+<!--    <servlet>
+        <servlet-name>General TimeSchedulerCont</servlet-name>
+        <servlet-class>com.ts.general.Controller.MsgSchedularController</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>-->
+<!-- ............................... TimerSchedular end............................................. -->
+    <servlet>
+        <servlet-name>ModemsTaskController</servlet-name>
+        <servlet-class>com.ts.general.Controller.ModemsTaskController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>general log_history_view</servlet-name>
+        <jsp-file>/view/general/logger_history.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>general connected_ip_view</servlet-name>
+        <jsp-file>/view/general/connected_ip.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>general logged_in_junction_view</servlet-name>
+        <jsp-file>/view/general/logged_in_junction_details.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>general errorView</servlet-name>
+        <jsp-file>/view/general/error.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>junctionl riseSetController</servlet-name>
+        <servlet-class>com.ts.junction.Controller.RiseSetCont</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>dataEntry jQueryCityNameController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.JQueryCityNameController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>dataEntry jQueryStateNameController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.JQueryStateNameController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>dataEntry jQueryDistrictNameController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.JQueryDistrictNameController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>home beforeHomeController</servlet-name>
+        <servlet-class>com.ts.home.controller.BeforeLoginHomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletInitializer</servlet-name>
+        <servlet-class>com.ts.general.Controller.ServletInitializer</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>general errorView</servlet-name>
+        <url-pattern>/errorView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>general calendar_view</servlet-name>
+        <jsp-file>/view/general/calendar.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>general calendar_view</servlet-name>
+        <url-pattern>/calendarView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>general logged_in_junction_view</servlet-name>
+        <url-pattern>/loggedInJunctionView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>general log_history_view</servlet-name>
+        <url-pattern>/logHistoryView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>general connected_ip_view</servlet-name>
+        <url-pattern>/connected_ip_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>general LoggedInJunctionController</servlet-name>
+        <servlet-class>com.ts.general.Controller.LoggedInJunctionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>general LoggedInJunctionController</servlet-name>
+        <url-pattern>/loggedInJunctionCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>general ConnectedIpCont</servlet-name>
+        <servlet-class>com.ts.general.Controller.ConnectedIpController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>general ConnectedIpCont</servlet-name>
+        <url-pattern>/connectedIpCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>general LoggerHistoryController</servlet-name>
+        <servlet-class>com.ts.general.Controller.LoggerHistoryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>general LoggerHistoryController</servlet-name>
+        <url-pattern>/LoggerHistoryCont</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModemsTaskController</servlet-name>
+        <url-pattern>/modemsTaskCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ModemStuff TimeUpdaterController</servlet-name>
+        <servlet-class>com.ts.general.Controller.TS_StatusUpdaterController</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>ModemResReadSaveController</servlet-name>
+        <servlet-class>com.ts.general.Controller.ModemResReadSaveController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>general history_detail_view</servlet-name>
+        <jsp-file>/view/general/history_details.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>general history_detail_view</servlet-name>
+        <url-pattern>/historyDetailsView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModemResReadSaveController</servlet-name>
+        <url-pattern>/modemResReadSaveCont</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModemStuff TimeUpdaterController</servlet-name>
+        <url-pattern>/ts_statusUpdaterCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Model TimeShowerController</servlet-name>
+        <servlet-class>com.ts.general.Controller.TS_StatusShowerController</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Model TimeShowerController</servlet-name>
+        <url-pattern>/ts_statusShowerCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>General ts_statusShower_view</servlet-name>
+        <jsp-file>/view/general/ts_statusShower.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>General ts_statusShower_view</servlet-name>
+        <url-pattern>/ts_statusShower_view</url-pattern>
+    </servlet-mapping>
+    <!-- ............................... Junction Servlets............................................. -->
+    <servlet>
+        <servlet-name>Junction junction_view</servlet-name>
+        <jsp-file>/view/junction/junction.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction junction_view</servlet-name>
+        <url-pattern>/junction_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Junction JunctionController</servlet-name>
+        <servlet-class>com.ts.junction.Controller.JunctionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction JunctionController</servlet-name>
+        <url-pattern>/junctionCont</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getCordinateMapWindow1 view</servlet-name>
+        <jsp-file>/view/junction/getCordinateMapWindow1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getCordinateMapWindow1 view</servlet-name>
+        <url-pattern>/getCordinate1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>openMapWindow view</servlet-name>
+        <jsp-file>/view/junction/mapWindow.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>openMapWindow view</servlet-name>
+        <url-pattern>/openMapWindowView</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Junction jun_sunrise_sunset_view</servlet-name>
+        <jsp-file>/view/junction/junction_sunrise_sunset.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction jun_sunrise_sunset_view</servlet-name>
+        <url-pattern>/jun_sunrise_sunset_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Junction JunSunriseSunsetController</servlet-name>
+        <servlet-class>com.ts.junction.Controller.Jun_Sunrise_SunsetController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction JunSunriseSunsetController</servlet-name>
+        <url-pattern>/JunSunriseSunsetCont</url-pattern>
+    </servlet-mapping>
+    <!-- ............................... dataEntry Servlets............................................. -->
+    <servlet>
+        <servlet-name>dataEntry city_view</servlet-name>
+        <jsp-file>/view/dataEntry/city.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry city_view</servlet-name>
+        <url-pattern>/city_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry CityController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.CityController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry CityController</servlet-name>
+        <url-pattern>/CityCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry state_view</servlet-name>
+        <jsp-file>/view/dataEntry/state.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry state_view</servlet-name>
+        <url-pattern>/state_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry StateController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.StateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry StateController</servlet-name>
+        <url-pattern>/stateCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry district_view</servlet-name>
+        <jsp-file>/view/dataEntry/district.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry district_view</servlet-name>
+        <url-pattern>/district_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry DistrictController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.DistrictController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry DistrictController</servlet-name>
+        <url-pattern>/districtCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry plan_mode_view</servlet-name>
+        <jsp-file>/view/dataEntry/plan_mode_view.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry plan_mode_view</servlet-name>
+        <url-pattern>/plan_mode_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dataEntry PlanModeController</servlet-name>
+        <servlet-class>com.ts.dataEntry.Controller.PlanModeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dataEntry PlanModeController</servlet-name>
+        <url-pattern>/planModeCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Junction plan_info_view</servlet-name>
+        <jsp-file>/view/junction/plan_info.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction plan_info_view</servlet-name>
+        <url-pattern>/plan_info_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Junction PlanInfoController</servlet-name>
+        <servlet-class>com.ts.junction.Controller.PlanInfoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction PlanInfoController</servlet-name>
+        <url-pattern>/PlanInfoCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Junction slave_info_view</servlet-name>
+        <jsp-file>/view/junction/slave_info.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction slave_info_view</servlet-name>
+        <url-pattern>/slave_info_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Junction SlaveInfoController</servlet-name>
+        <servlet-class>com.ts.junction.Controller.SlaveInfoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Junction SlaveInfoController</servlet-name>
+        <url-pattern>/slaveInfoCont</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>junctionl riseSetController</servlet-name>
+        <url-pattern>/riseSetCont</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dataEntry jQueryCityNameController</servlet-name>
+        <url-pattern>/cityNameCont</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dataEntry jQueryDistrictNameController</servlet-name>
+        <url-pattern>/districtNameCont</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dataEntry jQueryStateNameController</servlet-name>
+        <url-pattern>/stateNameCont</url-pattern>
+    </servlet-mapping>
+    <!-- ...............................End of dataEntry Servlets............................................. -->
+    <!-- ...............................Start of login Servlets............................................. -->
+    <servlet>
+        <servlet-name>login before_login_view</servlet-name>
+        <jsp-file>/view/login/before_login.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>login LoginController</servlet-name>
+        <servlet-class>com.ts.login.Controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>login LoginController</servlet-name>
+        <url-pattern>/loginCont</url-pattern>
+    </servlet-mapping>
+    <!-- ............................... end of login Servlets............................................. -->
+    <servlet-mapping>
+        <servlet-name>login before_login_view</servlet-name>
+        <url-pattern>/beforeLoginView</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>home beforeHomeController</servlet-name>
+        <url-pattern>/beforeHomeCont</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>/view/login/before_login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
